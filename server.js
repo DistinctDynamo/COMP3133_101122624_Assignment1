@@ -1,13 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const { buildSchema } = require('graphql')
-const { graphqlHTTP } = require("express-graphql")
+import cors from 'cors';
+import schema from './graphql/schema.js';
+
+import { ApolloServer }  from '@apollo/server';
+import { expressMiddleware } from '@as-integrations/express5';
 
 const app = express()
 const PORT = 5000
-
-const userModel = require('./models/Users')
-const employeeModel = require('./models/Employee')
 
 const connectDB = async() => {
     try{
@@ -29,8 +29,28 @@ const connectDB = async() => {
     }
 }
 
-app.listen(PORT, () =>{
-    connectDB()
-    console.log("GraphQL Server started")
-    console.log("http://localhost:5000/graphql")
-})
+async function startServer() {
+    const server = new ApolloServer({
+      schema
+    });
+
+    await server.start();
+
+    app.use(
+      '/graphql', 
+      cors(),
+      express.json(),
+      expressMiddleware(server)
+    );
+
+    app.listen(process.env.PORT, () => {
+      console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
+      try {
+          connectDB()
+      } catch (error) {
+        console.log(``);
+      }
+    })
+}
+
+startServer();
