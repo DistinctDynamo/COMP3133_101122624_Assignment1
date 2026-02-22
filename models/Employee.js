@@ -55,4 +55,8 @@ const employeeSchema = new mongoose.Schema({
     }
 })
 
+employeeSchema.pre('save', function(next) {
+    this.updated_at = Date.now();
+});
+
 module.exports = mongoose.model('Employee', employeeSchema);
