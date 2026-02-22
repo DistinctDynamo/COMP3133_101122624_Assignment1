@@ -1,0 +1,32 @@
+[
+    {
+    "input": {
+    "username":"Amyblade",
+    "email":"Amyblade@outlook.com",
+    "password": "Wateronthedaises"
+        }
+    },
+    {
+    "input":{
+    "first_name":"Jane",
+    "last_name": "Doe",
+    "email": "janedoe123@gmail.com",
+    "gender": "Female",
+    "designation":"Upper Management",
+    "salary": 15000,
+    "department": "Advertisement"
+        }
+    },
+    { 
+    "updateEmployeeId": "",
+    "input": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "email": "janedoe123@gmail.com",
+        "designation": "Upper Management",
+        "gender": "Female",
+        "department": "Advertisement",
+        "salary": 255000
+        }
+    }
+]
