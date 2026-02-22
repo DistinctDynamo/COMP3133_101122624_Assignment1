@@ -13,6 +13,7 @@ const employeeSchema = new mongoose.Schema({
     },
     email:{
         type: String,
+        required: [true, "Email required"],
         trim: true,
         unique: true
     },
@@ -29,7 +30,7 @@ const employeeSchema = new mongoose.Schema({
     salary:{
         type: Number,
         required: [true, "Salary Required"],
-        minlength: [1000, "Salary must be at most 1000 dollars"]
+        min: [1000, "Salary must be at most 1000 dollars"]
     },
     date_of_joining:{
         type: Date,
