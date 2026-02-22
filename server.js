@@ -1,5 +1,5 @@
-const express = require('express')
-const mongoose = require('mongoose')
+import express from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import schema from './graphql/schema.js';
 
@@ -43,7 +43,7 @@ async function startServer() {
       expressMiddleware(server)
     );
 
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
       console.log(`🚀 Server ready at http://localhost:${PORT}/graphql`);
       try {
           connectDB()

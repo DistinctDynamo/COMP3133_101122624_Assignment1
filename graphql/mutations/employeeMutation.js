@@ -1,8 +1,8 @@
 import {GraphQLNonNull, GraphQLID} from 'graphql';
 
-import Employee from '../../models/Employee'
-import EmployeeType from '../types/employeeTypes'
-import EmployeeInput from '../inputs/employeeInput'
+import Employee from '../../models/Employee.js'
+import EmployeeType from '../types/employeeTypes.js'
+import EmployeeInput from '../inputs/employeeInput.js'
 
 const employeeMutations = {
     addEmployee:{
@@ -43,7 +43,7 @@ const employeeMutations = {
             id: { type: new GraphQLNonNull(GraphQLID) }
         },
         resolve(parent, args) {
-            return Employee.findByIdAndRemove(args.id);
+            return Employee.findByIdAndDelete(args.id);
         }
     }
 }

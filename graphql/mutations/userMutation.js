@@ -1,8 +1,8 @@
 import {GraphQLNonNull, GraphQLID} from 'graphql';
 
-import User from '../../models/Users'
-import UserType from '../types/userTypes'
-import UserInput from '../inputs/userInput'
+import User from '../../models/Users.js'
+import UserType from '../types/userTypes.js'
+import UserInput from '../inputs/userInput.js'
 
 const userMutation = {
     createUser: {

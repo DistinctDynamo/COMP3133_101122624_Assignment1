@@ -1,11 +1,11 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
-import UserQueries from './queries/userQueries'
-import UserMutation from './mutations/userMutation'
-import EmployeeQueries from './queries/employeeQueries'
-import EmployeeMutation from './queries/employeeQueries'
+import UserQueries from './queries/userQueries.js'
+import UserMutation from './mutations/userMutation.js'
+import EmployeeQueries from './queries/employeeQueries.js'
+import EmployeeMutation from './mutations/employeeMutation.js'
 
 const RootQuery = new GraphQLObjectType({
-    name: 'RootQueryType',
+    name: 'Query',
     fields: {
         ...EmployeeQueries,
         ...UserQueries

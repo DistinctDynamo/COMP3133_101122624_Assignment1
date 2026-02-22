@@ -20,17 +20,17 @@ const employeeType = new GraphQLObjectType({
     description: "An employee object",
     fields: ()=>({
         id:{type:GraphQLID},
-        first_name:{type:GraphQLNonNull(GraphQLString)},
-        last_name:{type:GraphQLNonNull(GraphQLString)},
-        email:{type:GraphQLNonNull(GraphQLString)},
-        gender:{type:GraphQLNonNull(GraphQLString)},
-        designation:{type:GraphQLNonNull(GraphQLString)},
-        salary:{type:GraphQLNonNull(GraphQLFloat)},
-        date_of_joining:{},
-        department:{type:GraphQLNonNull(GraphQLString)},
-        employee_photo:{GraphQLString},
-        created_at:{},
-        updated_at:{}
+        first_name:{type: new GraphQLNonNull(GraphQLString)},
+        last_name:{type: new GraphQLNonNull(GraphQLString)},
+        email:{type: new GraphQLNonNull(GraphQLString)},
+        gender:{type: new GraphQLNonNull(GraphQLString)},
+        designation:{type: new GraphQLNonNull(GraphQLString)},
+        salary:{type: new GraphQLNonNull(GraphQLFloat)},
+        date_of_joining:{type: GraphQLString},
+        department:{type: new GraphQLNonNull(GraphQLString)},
+        employee_photo:{type: GraphQLString},
+        created_at:{type: GraphQLString},
+        updated_at:{type: GraphQLString}
     })
 });
 

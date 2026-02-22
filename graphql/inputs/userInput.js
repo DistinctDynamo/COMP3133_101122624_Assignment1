@@ -3,11 +3,11 @@ import {GraphQLInputObjectType, GraphQLString, GraphQLNonNull} from 'graphql'
 const userInput = new GraphQLInputObjectType({
     name: "userInput",
     fields: ()=>({
-        username:{type:GraphQLNonNull(GraphQLString)},
-        email:{type:GraphQLNonNull(GraphQLString)},
-        password:{type:GraphQLNonNull(GraphQLString)},
-        created_at:{},
-        updated_at:{}
+        username:{type: new GraphQLNonNull(GraphQLString)},
+        email:{type: new GraphQLNonNull(GraphQLString)},
+        password:{type: new GraphQLNonNull(GraphQLString)},
+        created_at:{type: GraphQLString},
+        updated_at:{type: GraphQLString}
     })
 });
 

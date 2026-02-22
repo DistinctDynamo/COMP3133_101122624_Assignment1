@@ -1,13 +1,13 @@
-import {GraphQLID, GraphQLNonNull} from 'graphql';
+import {GraphQLID, GraphQLNonNull, GraphQLString} from 'graphql';
 
-import User from '../../models/Users'
-import UserType from '../types/userTypes'
+import User from '../../models/Users.js'
+import UserType from '../types/userTypes.js'
 
 const userQueries = {
     login:{
        type: UserType,
-       args: { password: { type: new GraphQLNonNull(GraphQLID) } },
-       resolve: async (_, { password }) => await User.find({ password })
+       args: { password: { type: new GraphQLNonNull(GraphQLString) } },
+       resolve: async (_, { password }) => await User.findOne( {password} )
     }
 }
 

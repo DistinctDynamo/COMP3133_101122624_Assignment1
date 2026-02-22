@@ -1,7 +1,7 @@
-import {GraphQLList, GraphQLID, GraphQLNonNull} from 'graphql';
+import {GraphQLList, GraphQLID, GraphQLNonNull, GraphQLString} from 'graphql';
 
-import EmployeeType from '../types/employeeTypes'
-import Employee from '../../models/Employee'
+import EmployeeType from '../types/employeeTypes.js'
+import Employee from '../../models/Employee.js'
 
 
 const employeeQueries = {
@@ -16,8 +16,8 @@ const employeeQueries = {
   },
   EmployeesByDepartment: {
     type: new GraphQLList(EmployeeType),
-    args: { department: { type: new GraphQLNonNull(GraphQLID) } },
-    resolve: async (_, { department }) => await Employee.find({ department })
+    args: { department: { type: new GraphQLNonNull(GraphQLString) } },
+    resolve: async (_, { department }) => await Employee.find( {department} )
   }
 };
 
